@@ -36,7 +36,13 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (6.0.4)
+    awesome_print (1.7.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -84,6 +90,7 @@ GEM
     nokogiri (1.7.0-x86-mingw32)
       mini_portile2 (~> 2.1.0)
     pg (0.19.0-x86-mingw32)
+    public_suffix (2.0.4)
     rack (1.6.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -152,6 +159,9 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  addressable
+  annotate
+  awesome_print
   byebug
   coffee-rails (~> 4.1.0)
   dotenv-rails
