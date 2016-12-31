@@ -1,22 +1,18 @@
-<h1> Your Order </h1>
-
 <% if @order.present? %>
+<h1> Your Order </h1>
+<h3>
+  <br>
+  IMEI: <%= @order.imei %>
+  <br>
+  Lock Status:
+  <br>
+  Carrier:
+</h3>
 <p>
-  <strong>IMEI:</strong>
-  <%= @order.imei %>
+  <strong>Details:</strong>
+  <%= raw(@order.raw_result['SUCCESS'][0]['CODE']) %>
 </p>
-<p>
-  <strong>customer_email:</strong>
-  <%= @order.customer_email %>
-</p>
-<p>
-  <strong>Status:</strong>
-  <%= @order.status %>
-</p>
-<p>
-  <strong>Code:</strong>
-  <%= @order.raw_result['SUCCESS'][0]['CODE'] %>
-</p>
+<h3><a href='http://www.rapidunlockers.com'> Click here to unlock this phone</a><h3>
 <% else %>
-<h2> Order does not exist </h2>
+<h2> Order does not exist, </h2>
 <% end %>
