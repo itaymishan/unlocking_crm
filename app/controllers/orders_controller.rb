@@ -1,18 +1,16 @@
 class OrdersController < ApplicationController
 
   def index
-
+    @orders = Order.all
   end
 
   def create
-    # $para['IMEI'] = "111111111111116";
-    # $para['ID'] = "1382"; // got from 'imeiservicelist' [SERVICEID]
     @order = Order.create(order_params)
     redirect_to action: "index"
   end
 
   def show
-    @order = Order.find_by(IMEI: params[:IMEI])
+    @order = Order.find_by(imei: params[:IMEI])
   end
 
   def new
@@ -20,7 +18,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:imei, :email)
+    params.require(:order).permit(:imei, :customer_name, :customer_email)
   end
 
 end

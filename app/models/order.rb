@@ -14,14 +14,9 @@
 
 class Order < ActiveRecord::Base
 
+  enum status: [ :pending, :processing, :rejected, :success ]
+
   def get_order_status
 
   end
-
-  def create_new_imei_check(imei=nil, service=nil)
-
-  end
-
-
-
 end
