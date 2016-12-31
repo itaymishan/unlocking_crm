@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  http_basic_authenticate_with name: ENV['BASIC_USER'], password: ENV['BASIC_PASS'], except: :show
+
   def index
     @orders = Order.all
   end
@@ -10,7 +12,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find_by(imei: params[:IMEI])
+    @order = Order.find_by(imei: params[:imei])
   end
 
   def new

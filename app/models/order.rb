@@ -16,7 +16,15 @@ class Order < ActiveRecord::Base
 
   enum status: [ :pending, :processing, :rejected, :success ]
 
-  def get_order_status
+  after_create :make_order
 
+  def make_order
+    raw_status = DhruDevice.new.order_status(self.imei, 509)
+  end
+
+  def fetch_order_status
+    raw_status = DhruDevice.new.order_status(self.external_id)
+    self.raw_result = raw_status
+    self.save!
   end
 end

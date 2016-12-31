@@ -1,5 +1,6 @@
-<h1> Orders Show </h1>
+<h1> Your Order </h1>
 
+<% if @order.present? %>
 <p>
   <strong>IMEI:</strong>
   <%= @order.imei %>
@@ -9,6 +10,13 @@
   <%= @order.customer_email %>
 </p>
 <p>
-  <strong>status:</strong>
+  <strong>Status:</strong>
   <%= @order.status %>
 </p>
+<p>
+  <strong>Code:</strong>
+  <%= @order.raw_result['SUCCESS'][0]['CODE'] %>
+</p>
+<% else %>
+<h2> Order does not exist </h2>
+<% end %>
