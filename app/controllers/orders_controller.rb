@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   http_basic_authenticate_with name: ENV['BASIC_USER'], password: ENV['BASIC_PASS'], except: :show
-  before_action :set_order, on: :show
+  before_action :set_order, only: :show
 
   def index
     @orders = Order.all
@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:imei, :customer_name, :customer_email)
   end
 
-  def set_order
+  def set_order    
     @order = Order.find_by(imei: params[:imei])
     @order.fetch_order_status
   end
