@@ -19,7 +19,7 @@ class Order < ActiveRecord::Base
   after_create :make_order
 
   def make_order
-    self.raw_status = DhruDevice.new.place_imei_order(self.imei, 509)
+    self.raw_result = DhruDevice.new.place_imei_order(self.imei, 509)
     save!
   end
 
