@@ -20,7 +20,7 @@ class Order < ActiveRecord::Base
 
   def make_order
     self.raw_result = DhruDevice.new.place_imei_order(self.imei, 509)
-    save!
+    save
   end
 
   def fetch_order_status
