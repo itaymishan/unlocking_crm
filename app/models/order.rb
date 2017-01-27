@@ -26,6 +26,6 @@ class Order < ActiveRecord::Base
   def fetch_order_status
     raw_status = DhruDevice.new.order_status(self.external_id)
     self.raw_result = raw_status
-    self.save!
+    self.save
   end
 end
