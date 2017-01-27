@@ -16,7 +16,7 @@ class Order < ActiveRecord::Base
 
   enum status: [ :pending, :processing, :rejected, :success ]
 
-  after_create :make_order
+  #after_create :make_order
 
   def make_order
     self.raw_result = DhruDevice.new.place_imei_order(self.imei, 509)
